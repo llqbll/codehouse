@@ -70,9 +70,11 @@ idd_rsa.pub文件的内容复制到剪贴板上，到github网站添加"Add SSH 
 ####测试密钥是否有效
 
     $ ssh -T git@github.com
+    
 尝试 ssh to github
 
 提示:
+
     The authenticity of host 'github.com (207.97.227.239)' can't be established.
     RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
     Are you sure you want to continue connecting (yes/no)?
@@ -87,32 +89,38 @@ idd_rsa.pub文件的内容复制到剪贴板上，到github网站添加"Add SSH 
 ####add
 
 添加新文件到 Git 代码仓库的索引中
+
     $ git add filename
 
 ####mv
 
 移动或重命名文件
+
     $ git mv old-filename new-filename
 
 ####status
 
 查看目前工作目录的代码状态，自上次提交以来的添加、修改和删除等
+
     $ git status
 
 ####diff
 
 查看自上次提交以来，本地代码改动的具体情况
+
     $ git diff
 
 ####commit
 
 提交修改的代码（只是提交到本地的代码库，不会推送到服务器）
+
     $ git commit -am '修改说明'
 
 ####push
 
 将自上次 push 以来的，本地历次 commit，推送到服务器
 结合我们的实际，应该这样写：
+
     $ git push origin master:your-id
 
 其中，master 是本地的分支名；your-id 填你在服务器上的 id，服务器的版本库里会有以你的 id 为名称的分支。
@@ -120,17 +128,20 @@ idd_rsa.pub文件的内容复制到剪贴板上，到github网站添加"Add SSH 
 ####pull
 
 将别人推送到服务器的代码，拉到你的机器里
+
     $ git pull
 
 ####log
 
 查看修改记录，含作者、时间、修改说明等
+
     $ git log
 
 ####show
 
 显示具体的代码改动情况
 显示最后一次 commit 修改的内容：
+
     $ git show
 
 显示指定 commit 修改的内容：
@@ -140,13 +151,17 @@ idd_rsa.pub文件的内容复制到剪贴板上，到github网站添加"Add SSH 
 分支管理
 
 列出所有分支（当前所在分支前会有“*”号）：
+
     $ git branch
 
 新建分支：
+
 $ git branch 新分支名
 
 删除分支：
+
     $ git branch -d 欲删除的分支名
+    
 【注意！】不要把 ‘-d’ 写成了 ‘-D’，危险！
 
 -d：要求：被删除分支的所有修改，已经合并到当前分支；
@@ -155,9 +170,11 @@ $ git branch 新分支名
 ####checkout
 
 恢复某个已修改的文件（撤销未提交的修改）：
+
     $ git checkout file-name
 
 切换到另外的分支，进行开发：
+
     $ git checkout branch-name
 
 【注意！】该命令可能伴随大量的文件增删/修改。Windows 下，改动已被占用的文件可能会被拒绝，导致版本库出现严重问题。如果确实要这样做，安全起见，最好先注销一次。
@@ -165,15 +182,18 @@ $ git branch 新分支名
 ####merge
 
 合并指定分支到当前分支：
+
     $ git merge branch-name
 
 ####revert
 
 还原已提交的修改（已经提交过的修改，可以反悔～）
 还原最近一次提交的修改：
+
     $ git revert HEAD
 
 还原指定版本的修改：
+
     $ git revert commit-id
 
 ####stash
@@ -181,9 +201,11 @@ $ git branch 新分支名
 先将未提交的修改暂存起来，接着清除所有改动，使之与没修改时一样。
 若你正在开发功能 A，又需立即去开发功能 B。A 的代码正改到一半，未认真整理，你不想立即提交。此时……请呼叫 stash ～。
 它会使你所有未提交的修改瞬间不见了：
+
     $ git stash
 
 它会使刚刚不见了的修改，瞬间又回来了：
+
     $ git stash pop
 
 ####附：git push 失败的解决办法
@@ -196,7 +218,9 @@ $ git branch 新分支名
 此时 push 失败（错误提示：! [rejected] master -> master (non-fast-forward) ）
 
 解决办法：
+
     $ git pull
 
 若成功，则：
+
     $ git push origin master:your-id
