@@ -13,15 +13,25 @@ codehouse是我编程的代码仓库，开发过程中的代码基本都保存�
 【注意！】请将第二行最后的 “your-id” 修改成你在服务器上的实际 id，默认是姓名拼音。
 
 [alias]
+
     go = "! bash -c \"git pull && git add .; if [ \\\"$*\\\" == \\\"\\\" ]; then git commit -a; else git commit -am \\\"$*\\\"; fi; git push origin master:your-id;\""
+
 [core]
+
     autocrlf = false
+
 [gui]
+
     encoding = utf-8
+
 [i18n]
+
     commitencoding = GB2312
+
 [user]
+
     email = xxx@gmail.com
+
     name = 某某某
 
 ####2. C:\Program Files\Git\etc\inputrc 修改两行为：
